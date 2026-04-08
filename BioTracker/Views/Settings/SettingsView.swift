@@ -43,6 +43,8 @@ struct SettingsView: View {
                     LabeledContent("Build", value: "1")
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.surfaceBase)
             .navigationTitle("Settings")
         }
     }

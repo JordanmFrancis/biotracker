@@ -31,6 +31,8 @@ struct ExportView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.surfaceBase)
         .navigationTitle("Export")
         .sheet(isPresented: $showShareSheet) {
             if let data = exportData {

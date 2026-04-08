@@ -11,63 +11,95 @@ struct TimelineView: View {
 }
 
 struct BloodDrawTimeline: View {
+    @Environment(\.modelContext) private var modelContext
     @Query(sort: \BloodDraw.collectionDate, order: .reverse) private var draws: [BloodDraw]
+    @State private var pendingDelete: BloodDraw?
 
     var body: some View {
         if draws.isEmpty {
             EmptyStateView(icon: "syringe.fill", title: "No Blood Draws", message: "Import lab results to see your draw timeline.")
         } else {
-            List(draws, id: \.id) { draw in
-                NavigationLink {
-                    BloodDrawDetailView(draw: draw)
-                } label: {
-                    HStack {
-                        Circle()
-                            .fill(.blue)
-                            .frame(width: 12, height: 12)
+            List {
+                ForEach(draws, id: \.id) { draw in
+                    NavigationLink {
+                        BloodDrawDetailView(draw: draw)
+                    } label: {
+                        HStack {
+                            Circle()
+                                .fill(.blue)
+                                .frame(width: 12, height: 12)
 
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(draw.formattedDate)
-                                .font(.headline)
-                            HStack(spacing: 8) {
-                                Text(draw.labSource)
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                if let fasting = draw.fasting {
-                                    Text(fasting ? "Fasting" : "Non-fasting")
-                                        .font(.caption2)
-                                        .padding(.horizontal, 6)
-                                        .padding(.vertical, 2)
-                                        .background(fasting ? Color.green.opacity(0.15) : Color.orange.opacity(0.15))
-                                        .foregroundStyle(fasting ? .green : .orange)
-                                        .clipShape(Capsule())
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(draw.formattedDate)
+                                    .font(.headline)
+                                HStack(spacing: 8) {
+                                    Text(draw.labSource)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    if let fasting = draw.fasting {
+                                        Text(fasting ? "Fasting" : "Non-fasting")
+                                            .font(.caption2)
+                                            .padding(.horizontal, 6)
+                                            .padding(.vertical, 2)
+                                            .background(fasting ? Color.green.opacity(0.15) : Color.orange.opacity(0.15))
+                                            .foregroundStyle(fasting ? .green : .orange)
+                                            .clipShape(Capsule())
+                                    }
                                 }
                             }
+
+                            Spacer()
+
+                            VStack(alignment: .trailing, spacing: 2) {
+                                Text("\(draw.readings.count)")
+                                    .font(.title3.bold())
+                                Text("markers")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            if draw.flaggedCount > 0 {
+                                Text("\(draw.flaggedCount)")
+                                    .font(.caption.bold())
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color.red.opacity(0.15))
+                                    .foregroundStyle(.red)
+                                    .clipShape(Capsule())
+                            }
                         }
-
-                        Spacer()
-
-                        VStack(alignment: .trailing, spacing: 2) {
-                            Text("\(draw.readings.count)")
-                                .font(.title3.bold())
-                            Text("markers")
-                                .font(.caption2)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        if draw.flaggedCount > 0 {
-                            Text("\(draw.flaggedCount)")
-                                .font(.caption.bold())
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(Color.red.opacity(0.15))
-                                .foregroundStyle(.red)
-                                .clipShape(Capsule())
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button(role: .destructive) {
+                            pendingDelete = draw
+                        } label: {
+                            Label("Delete", systemImage: "trash")
                         }
                     }
                 }
             }
-            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .background(Color.surfaceBase)
+            .confirmationDialog(
+                "Delete this blood draw?",
+                isPresented: Binding(
+                    get: { pendingDelete != nil },
+                    set: { if !$0 { pendingDelete = nil } }
+                ),
+                titleVisibility: .visible,
+                presenting: pendingDelete
+            ) { draw in
+                Button("Delete Draw & \(draw.readings.count) Readings", role: .destructive) {
+                    modelContext.delete(draw)
+                    try? modelContext.save()
+                    pendingDelete = nil
+                }
+                Button("Cancel", role: .cancel) {
+                    pendingDelete = nil
+                }
+            } message: { draw in
+                Text("This removes the \(draw.formattedDate) draw and all \(draw.readings.count) readings it contains. Biomarker history from other draws is unaffected.")
+            }
         }
     }
 }
@@ -118,6 +150,8 @@ struct BloodDrawDetailView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.surfaceBase)
         .navigationTitle(draw.formattedDate)
         .navigationBarTitleDisplayMode(.inline)
     }

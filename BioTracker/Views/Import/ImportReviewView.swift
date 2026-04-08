@@ -57,6 +57,8 @@ struct ImportReviewView: View {
                 Text("Removes this draw and all of its readings. Biomarker history from other draws is unaffected.")
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.surfaceBase)
         .navigationTitle("Review Import")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

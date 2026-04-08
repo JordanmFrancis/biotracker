@@ -15,16 +15,17 @@ struct MiniSparkline: View {
     var body: some View {
         if readings.count >= 2 {
             Chart {
-                // In-range band (soft green) behind the line
+                // In-range band — muted dusty green, kept deliberately subtle
+                // so it reads as a "zone" behind the line, not an alert color.
                 if let low = referenceLow, let high = referenceHigh {
                     RectangleMark(yStart: .value("Low", low), yEnd: .value("High", high))
-                        .foregroundStyle(Color.flagInRange.opacity(0.18))
+                        .foregroundStyle(Color.zoneInRange.opacity(0.22))
                 } else if let high = referenceHigh {
                     RectangleMark(yStart: .value("Low", yDomain.lowerBound), yEnd: .value("High", high))
-                        .foregroundStyle(Color.flagInRange.opacity(0.18))
+                        .foregroundStyle(Color.zoneInRange.opacity(0.22))
                 } else if let low = referenceLow {
                     RectangleMark(yStart: .value("Low", low), yEnd: .value("High", yDomain.upperBound))
-                        .foregroundStyle(Color.flagInRange.opacity(0.18))
+                        .foregroundStyle(Color.zoneInRange.opacity(0.22))
                 }
 
                 // Trend line

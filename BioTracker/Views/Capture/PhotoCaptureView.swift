@@ -59,6 +59,8 @@ struct PhotoCaptureView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.surfaceBase)
         .navigationTitle("Capture Lab Photos")
         .onChange(of: pickerItems) { _, newItems in
             Task { await loadPickedItems(newItems) }

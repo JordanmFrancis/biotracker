@@ -74,6 +74,8 @@ struct ImportView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.surfaceBase)
         .navigationTitle("Import")
         .fileImporter(
             isPresented: $showFilePicker,

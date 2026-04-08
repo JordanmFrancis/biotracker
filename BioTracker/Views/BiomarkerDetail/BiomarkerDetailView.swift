@@ -13,7 +13,7 @@ struct BiomarkerDetailView: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 16)
         }
-        .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .background(Color.surfaceBase.ignoresSafeArea())
         .navigationTitle(biomarker.name)
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -149,7 +149,7 @@ private struct Card<Content: View>: View {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(Color(.secondarySystemGroupedBackground))
+                    .fill(Color.surfaceElevated)
             )
     }
 }

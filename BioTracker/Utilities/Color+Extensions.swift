@@ -17,6 +17,23 @@ extension Color {
     /// Secondary accent — used sparingly for emphasis on hero cards.
     static let brandAccentSoft = Color(hex: 0x5EEAD4)
 
+    // MARK: Surfaces (dark-mode greys, no pure black)
+    //
+    // Subtly cool neutrals on a ~220° hue axis. Harmonize with teal accent
+    // without clashing. 4 steps of elevation — Material 3 rhythm, Apple feel.
+
+    /// Deepest layer — screen background.
+    static let surfaceBase = Color(hex: 0x0E0F11)
+
+    /// Cards, grouped content rows, hero tiles — one step above base.
+    static let surfaceElevated = Color(hex: 0x17191C)
+
+    /// Modals, popovers, higher z — two steps above base.
+    static let surfaceHigh = Color(hex: 0x1F2125)
+
+    /// Quiet borders and dividers — visible but not loud.
+    static let borderQuiet = Color(hex: 0x2A2D31)
+
     // MARK: Flag / status
 
     /// In range (green) — emerald 400
@@ -27,10 +44,12 @@ extension Color {
     /// Critical only — red 400
     static let flagCritical = Color(hex: 0xF87171)
 
-    // MARK: Chart zones (used inside BiomarkerTrendChart)
+    // MARK: Chart zones (used inside BiomarkerTrendChart / MiniSparkline)
 
-    /// In-range band — soft emerald with transparency
-    static let zoneInRange = Color(hex: 0x34D399)
+    /// In-range band — intentionally desaturated so it reads as a "zone"
+    /// on the plot, not as a loud alert color. Always rendered with additional
+    /// opacity on top of a dark surface.
+    static let zoneInRange = Color(hex: 0x4A8A74)
     /// Out-of-range band — warm orange with transparency
     static let zoneAbove = Color(hex: 0xFB923C)
     /// The trend line itself
