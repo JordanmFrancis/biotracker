@@ -6,6 +6,7 @@ struct ImportView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var showFilePicker = false
     @State private var importResult: ImportResult?
+    @State private var reviewingDraw: BloodDraw?
     @State private var errorMessage: String?
     @State private var isImporting = false
 
@@ -30,7 +31,7 @@ struct ImportView: View {
                 Section {
                     HStack {
                         ProgressView()
-                        Text("Importing...")
+                        Text("Importing…")
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -38,14 +39,21 @@ struct ImportView: View {
 
             if let result = importResult {
                 Section("Import Result") {
-                    LabeledContent("Type", value: result.type)
                     LabeledContent("Imported", value: "\(result.itemsImported)")
                     LabeledContent("Skipped", value: "\(result.itemsSkipped)")
                     if !result.warnings.isEmpty {
                         ForEach(result.warnings, id: \.self) { warning in
                             Text(warning)
                                 .font(.caption)
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(Color.flagAbove)
+                        }
+                    }
+                    if let drawID = result.drawID,
+                       let draw = modelContext.model(for: drawID) as? BloodDraw {
+                        Button {
+                            reviewingDraw = draw
+                        } label: {
+                            Label("Review & Edit", systemImage: "pencil.line")
                         }
                     }
                 }
@@ -55,7 +63,7 @@ struct ImportView: View {
                 Section("Error") {
                     Text(error)
                         .font(.caption)
-                        .foregroundStyle(.red)
+                        .foregroundStyle(Color.flagCritical)
                 }
             }
 
@@ -75,6 +83,9 @@ struct ImportView: View {
             Task {
                 await handleImport(result)
             }
+        }
+        .navigationDestination(item: $reviewingDraw) { draw in
+            ImportReviewView(draw: draw)
         }
     }
 
@@ -102,5 +113,6 @@ struct ImportView: View {
     NavigationStack {
         ImportView()
     }
-    .modelContainer(for: Biomarker.self, inMemory: true)
+    .modelContainer(for: [BloodDraw.self, Biomarker.self, BiomarkerReading.self], inMemory: true)
+    .preferredColorScheme(.dark)
 }

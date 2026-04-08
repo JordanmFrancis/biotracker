@@ -4,16 +4,16 @@ import PhotosUI
 
 struct PhotoCaptureView: View {
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
 
     @State private var pickerItems: [PhotosPickerItem] = []
     @State private var photos: [PhotoItem] = []
     @State private var isExtracting = false
+    @State private var reviewingDraw: BloodDraw?
 
     var body: some View {
         List {
             Section {
-                Text("Pick one or more lab result photos. Set the collection date for each, then tap Extract All — the date you set overrides whatever the model reads from the image.")
+                Text("Pick one or more lab result photos. Set the collection date for each, then tap Extract All. After each extract you can review and edit the parsed values.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -34,7 +34,11 @@ struct PhotoCaptureView: View {
             if !photos.isEmpty {
                 Section("Photos (\(photos.count))") {
                     ForEach($photos) { $photo in
-                        PhotoRow(photo: $photo)
+                        PhotoRow(photo: $photo) {
+                            if case .done(_, let draw) = photo.status {
+                                reviewingDraw = draw
+                            }
+                        }
                     }
                     .onDelete { offsets in
                         photos.remove(atOffsets: offsets)
@@ -52,16 +56,15 @@ struct PhotoCaptureView: View {
                         }
                     }
                     .disabled(isExtracting || pendingCount == 0)
-
-                    if photos.contains(where: { if case .done = $0.status { return true } else { return false } }) {
-                        Button("Done", role: .cancel) { dismiss() }
-                    }
                 }
             }
         }
         .navigationTitle("Capture Lab Photos")
         .onChange(of: pickerItems) { _, newItems in
             Task { await loadPickedItems(newItems) }
+        }
+        .navigationDestination(item: $reviewingDraw) { draw in
+            ImportReviewView(draw: draw)
         }
     }
 
@@ -86,38 +89,30 @@ struct PhotoCaptureView: View {
             if case .done = photos[index].status { continue }
             photos[index].status = .extracting
             do {
-                let res = try await extract(photo: photos[index])
-                photos[index].status = .done(res)
+                let (result, draw) = try await extract(photo: photos[index])
+                photos[index].status = .done(result: result, draw: draw)
             } catch {
                 photos[index].status = .error(error.localizedDescription)
             }
         }
     }
 
-    private func extract(photo: PhotoItem) async throws -> ImportResult {
+    private func extract(photo: PhotoItem) async throws -> (ImportResult, BloodDraw) {
         let jpeg = UIImage(data: photo.data)?.jpegData(compressionQuality: 0.75) ?? photo.data
         let extractedJSON = try await ExtractionService.extract(imageData: jpeg)
-
-        // Override the model-read collectionDate with the user-supplied one.
         let patchedJSON = try patchCollectionDate(in: extractedJSON, to: photo.date)
 
         let importer = ImportService(modelContext: modelContext)
         let result = try importer.importData(patchedJSON)
 
-        // Stash the photo on the matching draw for later viewing.
-        if let parsed = try? JSONDecoder().decode(LabResultsImport.self, from: patchedJSON),
-           let date = Date.from(parsed.bloodDraw.collectionDate) {
-            let allDraws = try modelContext.fetch(FetchDescriptor<BloodDraw>())
-            if let match = allDraws.first(where: {
-                Calendar.current.isDate($0.collectionDate, inSameDayAs: date) &&
-                $0.labSource == parsed.bloodDraw.labSource
-            }) {
-                match.photoData = jpeg
-                try? modelContext.save()
-            }
+        guard let drawID = result.drawID,
+              let draw = modelContext.model(for: drawID) as? BloodDraw else {
+            throw ExtractionError.parseError("Could not locate imported draw")
         }
 
-        return result
+        draw.photoData = jpeg
+        try? modelContext.save()
+        return (result, draw)
     }
 
     private func patchCollectionDate(in data: Data, to date: Date) throws -> Data {
@@ -144,13 +139,14 @@ struct PhotoItem: Identifiable {
     enum Status {
         case pending
         case extracting
-        case done(ImportResult)
+        case done(result: ImportResult, draw: BloodDraw)
         case error(String)
     }
 }
 
 private struct PhotoRow: View {
     @Binding var photo: PhotoItem
+    let onReview: () -> Void
 
     var body: some View {
         HStack(spacing: 12) {
@@ -174,6 +170,21 @@ private struct PhotoRow: View {
 
                 statusLine
             }
+
+            Spacer()
+
+            if case .done = photo.status {
+                Button(action: onReview) {
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            if case .done = photo.status { onReview() }
         }
         .padding(.vertical, 4)
     }
@@ -190,15 +201,15 @@ private struct PhotoRow: View {
                 ProgressView().controlSize(.mini)
                 Text("Extracting…").font(.caption).foregroundStyle(.secondary)
             }
-        case .done(let result):
-            Label("\(result.itemsImported) imported, \(result.itemsSkipped) skipped",
+        case .done(let result, _):
+            Label("\(result.itemsImported) imported · tap to review",
                   systemImage: "checkmark.circle.fill")
                 .font(.caption)
-                .foregroundStyle(.green)
+                .foregroundStyle(Color.flagInRange)
         case .error(let msg):
             Label(msg, systemImage: "exclamationmark.triangle.fill")
                 .font(.caption)
-                .foregroundStyle(.red)
+                .foregroundStyle(Color.flagCritical)
                 .lineLimit(2)
         }
     }
@@ -207,4 +218,5 @@ private struct PhotoRow: View {
 #Preview {
     NavigationStack { PhotoCaptureView() }
         .modelContainer(for: [BloodDraw.self, Biomarker.self, BiomarkerReading.self], inMemory: true)
+        .preferredColorScheme(.dark)
 }

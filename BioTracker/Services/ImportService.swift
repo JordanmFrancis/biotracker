@@ -6,6 +6,8 @@ struct ImportResult {
     let itemsImported: Int
     let itemsSkipped: Int
     let warnings: [String]
+    /// The primary draw created or merged by this import, if any. Used to push a review screen.
+    var drawID: PersistentIdentifier? = nil
 }
 
 enum ImportError: LocalizedError {
@@ -114,7 +116,13 @@ final class ImportService {
         }
 
         try modelContext.save()
-        return ImportResult(type: "lab_results", itemsImported: imported, itemsSkipped: skipped, warnings: warnings)
+        return ImportResult(
+            type: "lab_results",
+            itemsImported: imported,
+            itemsSkipped: skipped,
+            warnings: warnings,
+            drawID: draw.persistentModelID
+        )
     }
 
     // MARK: - Full Backup

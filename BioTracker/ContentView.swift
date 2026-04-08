@@ -3,12 +3,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Tab("Dashboard", systemImage: "square.grid.2x2.fill") {
-                DashboardView()
-            }
-
-            Tab("Trends", systemImage: "chart.xyaxis.line") {
-                TrendsView()
+            Tab("Health", systemImage: "heart.text.square.fill") {
+                HealthView()
             }
 
             Tab("Timeline", systemImage: "calendar.badge.clock") {
@@ -19,6 +15,8 @@ struct ContentView: View {
                 SettingsView()
             }
         }
+        .tint(.brandAccent)
+        .preferredColorScheme(.dark)
     }
 }
 

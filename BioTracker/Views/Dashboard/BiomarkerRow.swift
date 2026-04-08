@@ -7,45 +7,43 @@ struct BiomarkerRow: View {
         biomarker.latestReading?.flag ?? .normal
     }
 
-    var body: some View {
-        HStack(spacing: 12) {
-            // Left color bar
-            RoundedRectangle(cornerRadius: 2)
-                .fill(flag.color)
-                .frame(width: 4)
+    private var recentReadings: [BiomarkerReading] {
+        biomarker.sortedReadings.filter { !$0.isQualitative }.suffix(6).map { $0 }
+    }
 
-            // Name + status/value
-            VStack(alignment: .leading, spacing: 3) {
+    var body: some View {
+        HStack(spacing: 14) {
+            // Name + status + value
+            VStack(alignment: .leading, spacing: 4) {
                 Text(biomarker.name)
                     .font(.body)
                     .foregroundStyle(.primary)
                     .lineLimit(1)
 
                 if let reading = biomarker.latestReading {
-                    HStack(spacing: 4) {
-                        Text(flag.label)
-                            .foregroundStyle(flag.color)
-                        Text("·")
-                            .foregroundStyle(.secondary)
-                        Text("\(reading.displayValue)")
-                            .fontWeight(.semibold)
+                    HStack(spacing: 6) {
+                        Circle()
+                            .fill(flag.color)
+                            .frame(width: 6, height: 6)
+                        Text(reading.displayValue)
+                            .font(.subheadline.weight(.semibold).monospacedDigit())
                             .foregroundStyle(.primary)
                         Text(biomarker.unit)
+                            .font(.caption)
                             .foregroundStyle(.secondary)
                     }
-                    .font(.subheadline)
                 }
             }
 
             Spacer()
 
-            // Sparkline
+            // Real-scale sparkline
             MiniSparkline(
-                values: TrendCalculator.sparklineValues(for: biomarker),
-                colors: TrendCalculator.sparklineColors(for: biomarker)
+                readings: recentReadings,
+                referenceLow: biomarker.referenceRangeLow,
+                referenceHigh: biomarker.referenceRangeHigh
             )
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
+        .padding(.vertical, 2)
     }
 }

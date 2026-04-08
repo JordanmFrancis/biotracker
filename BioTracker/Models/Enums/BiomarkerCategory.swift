@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum BiomarkerCategory: String, CaseIterable, Identifiable {
     case metabolic = "Metabolic / Diabetes"
@@ -44,6 +45,30 @@ enum BiomarkerCategory: String, CaseIterable, Identifiable {
         case .dutch: "clock.fill"
         case .urinalysis: "flask.fill"
         case .other: "square.grid.2x2"
+        }
+    }
+
+    var tileColor: Color {
+        switch self {
+        case .metabolic: .tileBlue
+        case .lipidPanel: .tileOrange
+        case .advancedLipids: .tileOrange
+        case .nmrSubfractions: .tileOrange
+        case .ionMobility: .tileOrange
+        case .omegaCheck: .tileCyan
+        case .inflammation: .tileCoral
+        case .liver: .tileAmber
+        case .kidney: .tileTeal
+        case .hormones: .tilePurple
+        case .thyroid: .tilePink
+        case .vitamins: .tileGreen
+        case .iron: .tileCyan
+        case .psa: .tileIndigo
+        case .cbc: .tileRose
+        case .differential: .tileLime
+        case .dutch: .tileViolet
+        case .urinalysis: .tileSlate
+        case .other: .tileSlate
         }
     }
 

@@ -1,138 +1,155 @@
 import SwiftUI
-import SwiftData
 
 struct BiomarkerDetailView: View {
     let biomarker: Biomarker
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                // Title
-                Text(biomarker.name)
-                    .font(.largeTitle.bold())
-                    .padding(.horizontal, 20)
-                    .padding(.top, 16)
-
-                // Status + current value section
-                if let reading = biomarker.latestReading {
-                    currentValueSection(reading: reading)
-                }
-
-                Divider()
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 16)
-
-                // Trend chart
-                BiomarkerTrendChart(biomarker: biomarker)
-                .frame(height: 280)
-                .padding(.horizontal, 20)
-
-                // All readings
-                readingsTable
-                    .padding(.top, 24)
-
-                Spacer(minLength: 32)
+            VStack(spacing: 16) {
+                headerCard
+                trendCard
+                readingsCard
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 16)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.secondarySystemGroupedBackground).ignoresSafeArea())
+        .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .navigationTitle(biomarker.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func currentValueSection(reading: BiomarkerReading) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            // Flag label
-            Text(reading.flag.label)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(reading.flag.color)
-                .padding(.top, 12)
+    // MARK: - Header (current value)
 
-            // Value row: colored dot + value + unit
-            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Circle()
-                    .fill(reading.flag.color)
-                    .frame(width: 10, height: 10)
-                    .offset(y: -2)
+    @ViewBuilder
+    private var headerCard: some View {
+        if let reading = biomarker.latestReading {
+            Card {
+                VStack(alignment: .leading, spacing: 14) {
+                    HStack {
+                        statusPill(for: reading.flag)
+                        Spacer()
+                        Text(reading.drawDate.formatted(date: .abbreviated, time: .omitted))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
 
-                Text(reading.displayValue)
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text(reading.displayValue)
+                            .font(.system(size: 44, weight: .bold, design: .rounded))
+                            .foregroundStyle(.primary)
+                            .monospacedDigit()
+                        Text(biomarker.unit)
+                            .font(.title3)
+                            .foregroundStyle(.secondary)
+                    }
 
-                Text(biomarker.unit)
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-            }
-
-            // Source date
-            Text("Based on lab results from \(reading.drawDate.formatted(.dateTime.month(.twoDigits).day(.twoDigits).year(.twoDigits)))")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-
-            // Reference range
-            if let refLow = biomarker.referenceRangeLow, let refHigh = biomarker.referenceRangeHigh {
-                Text("Reference: \(formatted(refLow)) – \(formatted(refHigh)) \(biomarker.unit)")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            } else if let refHigh = biomarker.referenceRangeHigh {
-                Text("Reference: < \(formatted(refHigh)) \(biomarker.unit)")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            } else if let refLow = biomarker.referenceRangeLow {
-                Text("Reference: > \(formatted(refLow)) \(biomarker.unit)")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            } else if let refText = biomarker.referenceRangeText {
-                Text("Reference: \(refText)")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
+                    if let refText = rangeText {
+                        Text(refText)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
             }
         }
-        .padding(.horizontal, 20)
     }
 
-    private var readingsTable: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("All Readings")
-                .font(.headline)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 10)
+    private func statusPill(for flag: ReadingFlag) -> some View {
+        HStack(spacing: 6) {
+            Circle().fill(flag.color).frame(width: 7, height: 7)
+            Text(flag.label)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(flag.color)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
+        .background(flag.color.opacity(0.15))
+        .clipShape(Capsule())
+    }
 
-            ForEach(biomarker.sortedReadings.reversed(), id: \.id) { reading in
-                VStack(spacing: 0) {
+    private var rangeText: String? {
+        let unit = biomarker.unit
+        if let low = biomarker.referenceRangeLow, let high = biomarker.referenceRangeHigh {
+            return "Optimal: \(format(low)) – \(format(high)) \(unit)"
+        } else if let high = biomarker.referenceRangeHigh {
+            return "Optimal: < \(format(high)) \(unit)"
+        } else if let low = biomarker.referenceRangeLow {
+            return "Optimal: > \(format(low)) \(unit)"
+        } else if let text = biomarker.referenceRangeText {
+            return "Reference: \(text)"
+        }
+        return nil
+    }
+
+    // MARK: - Trend
+
+    private var trendCard: some View {
+        Card {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Trend")
+                    .font(.headline)
+                BiomarkerTrendChart(biomarker: biomarker)
+                    .frame(height: 240)
+            }
+        }
+    }
+
+    // MARK: - Readings list
+
+    private var readingsCard: some View {
+        Card {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("All Readings")
+                    .font(.headline)
+
+                ForEach(Array(biomarker.sortedReadings.reversed().enumerated()), id: \.element.id) { idx, reading in
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
                             Text(reading.drawDate.formatted(date: .abbreviated, time: .omitted))
                                 .font(.subheadline)
-                            if let source = reading.bloodDraw?.labSource {
-                                Text(source)
-                                    .font(.caption)
+                            if let src = reading.bloodDraw?.labSource {
+                                Text(src)
+                                    .font(.caption2)
                                     .foregroundStyle(.secondary)
                             }
                         }
                         Spacer()
                         HStack(spacing: 6) {
-                            Circle()
-                                .fill(reading.flag.color)
-                                .frame(width: 6, height: 6)
+                            Circle().fill(reading.flag.color).frame(width: 6, height: 6)
                             Text(reading.displayValue)
                                 .font(.subheadline.weight(.semibold).monospacedDigit())
                             Text(biomarker.unit)
-                                .font(.caption)
+                                .font(.caption2)
                                 .foregroundStyle(.secondary)
                         }
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 6)
 
-                    if reading.id != biomarker.sortedReadings.first?.id {
-                        Divider().padding(.leading, 20)
+                    if idx < biomarker.sortedReadings.count - 1 {
+                        Divider()
                     }
                 }
             }
         }
     }
 
-    private func formatted(_ value: Double) -> String {
-        if value == value.rounded() { return String(format: "%.0f", value) }
-        return String(format: "%.1f", value)
+    private func format(_ v: Double) -> String {
+        if v == v.rounded() { return String(format: "%.0f", v) }
+        return String(format: "%.1f", v)
+    }
+}
+
+// MARK: - Card wrapper
+
+private struct Card<Content: View>: View {
+    @ViewBuilder var content: Content
+
+    var body: some View {
+        content
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(Color(.secondarySystemGroupedBackground))
+            )
     }
 }

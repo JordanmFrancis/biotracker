@@ -1,30 +1,64 @@
 import SwiftUI
 
+// MARK: - BioTracker Design Palette
+//
+// Dark-first. Muted, low-chroma scientific palette.
+// Accent is teal (not system blue) — distinctive, calm, "medical" without being cold.
+// Flag colors follow the spec: green = in-range, orange = out-of-range, red = critical only.
+
 extension Color {
-    // Flag colors — matched from screenshot
-    static let flagInRange = Color(red: 0.45, green: 0.72, blue: 0.45)
-    static let flagAbove = Color(red: 0.82, green: 0.53, blue: 0.28)
-    static let flagBelow = Color(red: 0.82, green: 0.53, blue: 0.28)
-    static let flagCritical = Color(red: 0.90, green: 0.25, blue: 0.25)
 
-    // Chart zone bars — from detail screenshot
-    static let zoneInRange = Color(red: 0.31, green: 0.65, blue: 0.61)
-    static let zoneAbove = Color(red: 0.78, green: 0.48, blue: 0.26)
+    // MARK: Brand
 
-    // Chart
-    static let chartLine = Color(red: 0.63, green: 0.63, blue: 0.63)
-    static let chartReferenceBand = Color.green.opacity(0.12)
-    static let chartOptimalBand = Color.green.opacity(0.25)
-    static let chartProtocolLine = Color.blue.opacity(0.5)
+    /// Primary accent — used for app tint, active controls, trend lines.
+    /// Teal-400, works in both color schemes.
+    static let brandAccent = Color(hex: 0x2DD4BF)
 
-    // BP
-    static let bpNormal = Color.green
-    static let bpElevated = Color.yellow
-    static let bpStage1 = Color.orange
-    static let bpStage2 = Color.red
+    /// Secondary accent — used sparingly for emphasis on hero cards.
+    static let brandAccentSoft = Color(hex: 0x5EEAD4)
 
-    // WHOOP
-    static let whoopGreen = Color(red: 0, green: 0.78, blue: 0.33)
-    static let whoopYellow = Color(red: 1, green: 0.84, blue: 0)
-    static let whoopRed = Color(red: 1, green: 0.09, blue: 0.27)
+    // MARK: Flag / status
+
+    /// In range (green) — emerald 400
+    static let flagInRange = Color(hex: 0x34D399)
+    /// Above or below range (orange) — orange 400
+    static let flagAbove = Color(hex: 0xFB923C)
+    static let flagBelow = Color(hex: 0xFB923C)
+    /// Critical only — red 400
+    static let flagCritical = Color(hex: 0xF87171)
+
+    // MARK: Chart zones (used inside BiomarkerTrendChart)
+
+    /// In-range band — soft emerald with transparency
+    static let zoneInRange = Color(hex: 0x34D399)
+    /// Out-of-range band — warm orange with transparency
+    static let zoneAbove = Color(hex: 0xFB923C)
+    /// The trend line itself
+    static let chartLine = Color(hex: 0x2DD4BF)
+
+    // MARK: Category tile colors (squircle icons, Apple-Settings style)
+
+    static let tileBlue = Color(hex: 0x3B82F6)     // metabolic
+    static let tileOrange = Color(hex: 0xF97316)   // lipids
+    static let tileAmber = Color(hex: 0xEAB308)    // liver
+    static let tileTeal = Color(hex: 0x14B8A6)     // kidney
+    static let tilePurple = Color(hex: 0xA855F7)   // hormones
+    static let tilePink = Color(hex: 0xEC4899)     // thyroid
+    static let tileGreen = Color(hex: 0x22C55E)    // vitamins
+    static let tileCoral = Color(hex: 0xF43F5E)    // inflammation
+    static let tileRose = Color(hex: 0xFB7185)     // CBC
+    static let tileCyan = Color(hex: 0x06B6D4)     // iron
+    static let tileIndigo = Color(hex: 0x6366F1)   // psa
+    static let tileLime = Color(hex: 0x84CC16)     // differential
+    static let tileViolet = Color(hex: 0x8B5CF6)   // dutch
+    static let tileSlate = Color(hex: 0x64748B)    // other / urinalysis
+
+    // MARK: Hex helper
+
+    init(hex: UInt32, opacity: Double = 1.0) {
+        let r = Double((hex >> 16) & 0xFF) / 255
+        let g = Double((hex >> 8) & 0xFF) / 255
+        let b = Double(hex & 0xFF) / 255
+        self = Color(.sRGB, red: r, green: g, blue: b, opacity: opacity)
+    }
 }
