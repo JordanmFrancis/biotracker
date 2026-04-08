@@ -1,0 +1,28 @@
+name: BioTracker
+options:
+  bundleIdPrefix: com.jordanfrancis
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+    INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+targets:
+  BioTracker:
+    type: application
+    platform: iOS
+    sources:
+      - BioTracker
+    resources:
+      - path: BioTracker/Resources
+        type: folder
+    settings:
+      base:
+        CODE_SIGN_ENTITLEMENTS: BioTracker/BioTracker.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.jordanfrancis.BioTracker
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_CFBundleDisplayName: BioTracker
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
