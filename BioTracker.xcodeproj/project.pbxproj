@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,7 +55,7 @@
 		4B1D37FBCD387EE12505C082 /* BloodDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDraw.swift; sourceTree = "<group>"; };
 		565C5BCDF8CB556A6CEA599B /* BiomarkerReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerReading.swift; sourceTree = "<group>"; };
 		565C72D037C53BCCF0F1E406 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		570B763B3F151DBC799B9E38 /* BioTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BioTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		570B763B3F151DBC799B9E38 /* BioTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582CE276F37684684518AD5D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCalculator.swift; sourceTree = "<group>"; };
 		728F5D06C1986AB0C46DD01D /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
@@ -287,7 +287,6 @@
 			);
 			mainGroup = 5C2C9D91919E3107593831FA;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -422,6 +421,7 @@
 				CODE_SIGN_ENTITLEMENTS = BioTracker/BioTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8PC8663AM4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BioTracker;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,6 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = BioTracker/BioTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8PC8663AM4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BioTracker;
 				LD_RUNPATH_SEARCH_PATHS = (
