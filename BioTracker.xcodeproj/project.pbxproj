@@ -15,8 +15,10 @@
 		2D2112DDC118DB82B4E273EC /* TrendCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */; };
 		31EEC7AC953015D39E1DF093 /* Biomarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7820575F03D948A4A18D625 /* Biomarker.swift */; };
 		388B65EE0C73DFA24C292352 /* MiniSparkline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */; };
+		442D3600EEBD82FB7DB48CA0 /* ExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273DDFED4FF90E71B428B2F /* ExtractionService.swift */; };
 		458DF7E66D8CF85508D2B2FA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE80E1A8B3AC3D2181EFBB /* Color+Extensions.swift */; };
 		4F5E5BB3623B40EC7A6134F4 /* SeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD7DEC4D153930D18453175 /* SeedService.swift */; };
+		50CB94BFD6AD3D11D55B8D9D /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E61B433E087AD3CCE83D2 /* PhotoCaptureView.swift */; };
 		5555034EBEEEEDB321CDD2E0 /* ReadingFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3809A91D2910390710A28C /* ReadingFlag.swift */; };
 		5B1944019814723AB8176A6D /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */; };
 		61B9AAC723EF8FB53A27FBD2 /* BiomarkerTrendChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61B65366A9FE958386749F /* BiomarkerTrendChart.swift */; };
@@ -40,9 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0273DDFED4FF90E71B428B2F /* ExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionService.swift; sourceTree = "<group>"; };
 		0F3ADA08D10590DD12752FCD /* BioTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioTrackerApp.swift; sourceTree = "<group>"; };
 		107A91BEB8BF26E5CBF91379 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		11CF13917ADF8F4705BEAE15 /* BiomarkerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerRow.swift; sourceTree = "<group>"; };
+		305E61B433E087AD3CCE83D2 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		32EC3E2EA953309EB16E7594 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3CD7DEC4D153930D18453175 /* SeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedService.swift; sourceTree = "<group>"; };
 		3ED46AE9E06E201ACE75B61E /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8AE52AB469785329CC1C4447 /* ExportService.swift */,
+				0273DDFED4FF90E71B428B2F /* ExtractionService.swift */,
 				EF29C2B561145869FA8BF696 /* ImportService.swift */,
 				3CD7DEC4D153930D18453175 /* SeedService.swift */,
 				6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */,
@@ -162,6 +167,14 @@
 				8335CA9B18707C7E8A34FB72 /* JSONSchemas.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A84070114ABA5CE3EBFC3D90 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				305E61B433E087AD3CCE83D2 /* PhotoCaptureView.swift */,
+			);
+			path = Capture;
 			sourceTree = "<group>";
 		};
 		B1111AB9D3AE85CD07B897A0 /* BioTracker */ = {
@@ -216,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				C507643E51BFF0E8697FB28D /* BiomarkerDetail */,
+				A84070114ABA5CE3EBFC3D90 /* Capture */,
 				360CED77C126F1B9BB7F7A3F /* Dashboard */,
 				250B0CA6B1D50904117E9C1E /* Settings */,
 				700B31A5FE214F82DCAF78BB /* Shared */,
@@ -314,10 +328,12 @@
 				DA6322FC82897DF70E96551C /* EmptyStateView.swift in Sources */,
 				86F4E037BD479C586188F259 /* ExportService.swift in Sources */,
 				F903D0D88B4B93B8B0958526 /* ExportView.swift in Sources */,
+				442D3600EEBD82FB7DB48CA0 /* ExtractionService.swift in Sources */,
 				9CCFB381FB3B77D359A3E66D /* ImportService.swift in Sources */,
 				17A1E862C30E10413D9CA368 /* ImportView.swift in Sources */,
 				F85CF201A386B2BFC2B2DA0B /* JSONSchemas.swift in Sources */,
 				388B65EE0C73DFA24C292352 /* MiniSparkline.swift in Sources */,
+				50CB94BFD6AD3D11D55B8D9D /* PhotoCaptureView.swift in Sources */,
 				82C1ACE328AF1317A86B58E9 /* QuickStatsBar.swift in Sources */,
 				5555034EBEEEEDB321CDD2E0 /* ReadingFlag.swift in Sources */,
 				4F5E5BB3623B40EC7A6134F4 /* SeedService.swift in Sources */,

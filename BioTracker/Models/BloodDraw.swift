@@ -9,6 +9,7 @@ final class BloodDraw {
     var fasting: Bool?
     var sourceFileName: String?
     var notes: String?
+    @Attribute(.externalStorage) var photoData: Data?
 
     @Relationship(deleteRule: .cascade, inverse: \BiomarkerReading.bloodDraw)
     var readings: [BiomarkerReading]
