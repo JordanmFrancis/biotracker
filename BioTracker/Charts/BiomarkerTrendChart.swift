@@ -3,7 +3,6 @@ import Charts
 
 struct BiomarkerTrendChart: View {
     let biomarker: Biomarker
-    let protocolItems: [ProtocolItem]
 
     private var readings: [BiomarkerReading] {
         biomarker.sortedReadings.filter { !$0.isQualitative }

@@ -17,9 +17,6 @@ final class Biomarker {
     @Relationship(deleteRule: .cascade, inverse: \BiomarkerReading.biomarker)
     var readings: [BiomarkerReading]
 
-    @Relationship(inverse: \GeneticVariant.linkedBiomarkers)
-    var linkedVariants: [GeneticVariant]
-
     init(name: String, category: String, unit: String) {
         self.id = UUID()
         self.name = name
@@ -27,7 +24,6 @@ final class Biomarker {
         self.unit = unit
         self.sortOrder = 0
         self.readings = []
-        self.linkedVariants = []
     }
 
     var latestReading: BiomarkerReading? {

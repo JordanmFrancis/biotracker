@@ -3,8 +3,6 @@ import SwiftData
 
 struct DashboardView: View {
     @Query(sort: \Biomarker.sortOrder) private var biomarkers: [Biomarker]
-    @Query(sort: \WhoopEntry.date, order: .reverse) private var whoopEntries: [WhoopEntry]
-    @Query(sort: \BPReading.date, order: .reverse) private var bpReadings: [BPReading]
     @Query(sort: \BloodDraw.collectionDate, order: .reverse) private var bloodDraws: [BloodDraw]
 
     var body: some View {
@@ -25,14 +23,6 @@ struct DashboardView: View {
                                 lastDrawDate: bloodDraws.first?.collectionDate,
                                 drawCount: bloodDraws.count
                             )
-
-                            if let latest = whoopEntries.first {
-                                WhoopSummaryCard(entry: latest)
-                            }
-
-                            if let latest = bpReadings.first {
-                                BPSummaryCard(reading: latest, recentReadings: Array(bpReadings.prefix(7)))
-                            }
 
                             ForEach(groupedCategories, id: \.category) { group in
                                 CategorySection(

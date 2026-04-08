@@ -9,12 +9,7 @@ struct BioTrackerApp: App {
         let schema = Schema([
             BloodDraw.self,
             Biomarker.self,
-            BiomarkerReading.self,
-            GeneticVariant.self,
-            ProtocolItem.self,
-            WhoopEntry.self,
-            BPReading.self,
-            Reminder.self
+            BiomarkerReading.self
         ])
         let config = ModelConfiguration(
             "BioTracker",

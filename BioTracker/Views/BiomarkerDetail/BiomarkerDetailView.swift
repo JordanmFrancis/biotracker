@@ -3,12 +3,6 @@ import SwiftData
 
 struct BiomarkerDetailView: View {
     let biomarker: Biomarker
-    @Query private var protocolItems: [ProtocolItem]
-
-    init(biomarker: Biomarker) {
-        self.biomarker = biomarker
-        _protocolItems = Query(filter: #Predicate<ProtocolItem> { $0.isActive }, sort: \ProtocolItem.sortOrder)
-    }
 
     var body: some View {
         ScrollView {
@@ -29,22 +23,13 @@ struct BiomarkerDetailView: View {
                     .padding(.vertical, 16)
 
                 // Trend chart
-                BiomarkerTrendChart(
-                    biomarker: biomarker,
-                    protocolItems: protocolItems
-                )
+                BiomarkerTrendChart(biomarker: biomarker)
                 .frame(height: 280)
                 .padding(.horizontal, 20)
 
                 // All readings
                 readingsTable
                     .padding(.top, 24)
-
-                // Genetic context
-                if !biomarker.linkedVariants.isEmpty {
-                    geneticContextSection
-                        .padding(.top, 24)
-                }
 
                 Spacer(minLength: 32)
             }
@@ -142,19 +127,6 @@ struct BiomarkerDetailView: View {
                         Divider().padding(.leading, 20)
                     }
                 }
-            }
-        }
-    }
-
-    private var geneticContextSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Genetic Context")
-                .font(.headline)
-                .padding(.horizontal, 20)
-
-            ForEach(biomarker.linkedVariants, id: \.id) { variant in
-                GeneticVariantCard(variant: variant)
-                    .padding(.horizontal, 20)
             }
         }
     }

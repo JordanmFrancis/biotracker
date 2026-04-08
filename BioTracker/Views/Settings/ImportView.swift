@@ -12,7 +12,7 @@ struct ImportView: View {
     var body: some View {
         List {
             Section {
-                Text("Import JSON files containing lab results, genetic variants, protocol items, WHOOP data, or blood pressure readings.")
+                Text("Import JSON files containing lab results.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -60,7 +60,7 @@ struct ImportView: View {
             }
 
             Section("Supported Formats") {
-                ForEach(["lab_results", "genetic_variants", "protocol", "whoop_data", "bp_readings", "biotracker_backup"], id: \.self) { type in
+                ForEach(["lab_results", "biotracker_backup"], id: \.self) { type in
                     Text(type)
                         .font(.caption.monospaced())
                 }

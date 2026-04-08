@@ -19,28 +19,6 @@ struct SettingsView: View {
                     } label: {
                         Label("Export / Backup", systemImage: "square.and.arrow.up")
                     }
-
-                    NavigationLink {
-                        SyncView()
-                    } label: {
-                        Label("Cowork Sync", systemImage: "arrow.triangle.2.circlepath")
-                    }
-                }
-
-                Section("Notifications") {
-                    NavigationLink {
-                        RemindersListView()
-                    } label: {
-                        Label("Reminders", systemImage: "bell.fill")
-                    }
-                }
-
-                Section("WHOOP") {
-                    NavigationLink {
-                        WhoopDetailView()
-                    } label: {
-                        Label("WHOOP Dashboard", systemImage: "heart.circle.fill")
-                    }
                 }
 
                 Section("About") {

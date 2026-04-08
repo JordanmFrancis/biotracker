@@ -7,73 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		059A3A16F893DCA8F112AE8A /* WhoopSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9B7843C98670FB2BA89BD /* WhoopSummaryCard.swift */; };
 		0B318815788DFBD48CA7E067 /* BioTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ADA08D10590DD12752FCD /* BioTrackerApp.swift */; };
 		0D959E89E9FB8FE95DA02134 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EC3E2EA953309EB16E7594 /* SettingsView.swift */; };
-		0F6B058F73CDDF4B0561B46B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC470F95F3D4B1D104584161 /* NotificationService.swift */; };
-		15A37C28A96A178EF5F66DCF /* BPTrendChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78A231D4393DCC8843ADF30 /* BPTrendChart.swift */; };
 		17A1E862C30E10413D9CA368 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE2C3BA976F83F6D10393 /* ImportView.swift */; };
 		19B528BA5794D37932B07AEF /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED46AE9E06E201ACE75B61E /* TrendsView.swift */; };
-		1BFF582AC5D34A0C4EB76C79 /* WhoopCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FDC972EEDB0D9EB4B57DD /* WhoopCharts.swift */; };
 		24630BB548789766221E114C /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728F5D06C1986AB0C46DD01D /* CategorySection.swift */; };
 		2D2112DDC118DB82B4E273EC /* TrendCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */; };
 		31EEC7AC953015D39E1DF093 /* Biomarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7820575F03D948A4A18D625 /* Biomarker.swift */; };
 		388B65EE0C73DFA24C292352 /* MiniSparkline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */; };
-		3F15473536E55B777DFA74AA /* GeneticVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78A753D2E56776CA0CEF11 /* GeneticVariant.swift */; };
-		439CA643EE4C4E3D8EDEFCED /* BPContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8EFC89E2961442C26B345B /* BPContext.swift */; };
 		458DF7E66D8CF85508D2B2FA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE80E1A8B3AC3D2181EFBB /* Color+Extensions.swift */; };
-		4E612707CEE5C3FC2E84E06C /* BPLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120D33CE06DA4222CF153C1 /* BPLogView.swift */; };
 		4F5E5BB3623B40EC7A6134F4 /* SeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD7DEC4D153930D18453175 /* SeedService.swift */; };
 		5555034EBEEEEDB321CDD2E0 /* ReadingFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3809A91D2910390710A28C /* ReadingFlag.swift */; };
 		5B1944019814723AB8176A6D /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */; };
-		60CE2DB4FDBE70FD6478C07C /* BPReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAF94A7216BBC7AAE28783 /* BPReading.swift */; };
 		61B9AAC723EF8FB53A27FBD2 /* BiomarkerTrendChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61B65366A9FE958386749F /* BiomarkerTrendChart.swift */; };
-		656D6605836266B08D02F586 /* ProtocolItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A7B11583D0BB0BEA9D16E /* ProtocolItemType.swift */; };
 		73104548238D56C1CE6C518D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C72D037C53BCCF0F1E406 /* Date+Extensions.swift */; };
 		73D1E1294E9FD8557A3F249A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF5E353C7B4D4521A30A65 /* DashboardView.swift */; };
-		77284911DAB4D97FC9746F85 /* BPSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82EDFE1158BB23AFE61269 /* BPSummaryCard.swift */; };
 		82C1ACE328AF1317A86B58E9 /* QuickStatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E657C907424BA3810E397E /* QuickStatsBar.swift */; };
-		83CC8BC290F17E13DB3E3F3C /* WhoopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88CC729F7B5E907D945453D /* WhoopDetailView.swift */; };
 		86F4E037BD479C586188F259 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE52AB469785329CC1C4447 /* ExportService.swift */; };
-		873F5E5CBBA34B1EE196ED4D /* WhoopEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9113EF6648DC01FCB1B022 /* WhoopEntry.swift */; };
 		955A8004E62F8E03F582A3F5 /* TrendIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC087F718CB87B3850F783A2 /* TrendIndicator.swift */; };
-		955BD5C0818278FB99BBF4A9 /* GeneticVariantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61718638418B24031E4582B /* GeneticVariantCard.swift */; };
 		9AD61C8CEEE214E2288BA6AF /* BiomarkerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2906DA0525533E8B92C64 /* BiomarkerCategory.swift */; };
 		9CCFB381FB3B77D359A3E66D /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C2B561145869FA8BF696 /* ImportService.swift */; };
 		A61B360761573B6A7E8D69D6 /* BloodDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D37FBCD387EE12505C082 /* BloodDraw.swift */; };
 		AAB4542152162ABA568F8DAA /* BiomarkerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE1EADAADAE6DC2A0E7A9 /* BiomarkerDetailView.swift */; };
-		B5CCF642D7F5CFE58E31669D /* ProtocolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7F5D0DDDE51D35B9C3D14 /* ProtocolView.swift */; };
-		B9240919AA3830F2AE5D27AD /* SyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06386F524D1D80B0FECD219F /* SyncView.swift */; };
-		BF66B6AC790BCFC6222BEF5A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0683ADA019574A296C78F /* Reminder.swift */; };
-		C188C2B614CA7FABA76BF3AC /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F6B0914093146096A2C57 /* SyncService.swift */; };
 		C219448A268D186C40841D73 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A91BEB8BF26E5CBF91379 /* TimelineView.swift */; };
 		C8F9880D7C5835209E1CAB59 /* DefaultBiomarkers.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F01A18B7BFF7E74D107DA06 /* DefaultBiomarkers.json */; };
 		D2FAC62A566CB654DA4B06DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85153FE919C14E6E378DE8A /* ContentView.swift */; };
 		DA6322FC82897DF70E96551C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE276F37684684518AD5D /* EmptyStateView.swift */; };
 		E029B613C2596E27B2FC6AA3 /* BiomarkerReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C5BCDF8CB556A6CEA599B /* BiomarkerReading.swift */; };
-		E16AF00A6737C713F428EF8F /* ReminderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA995E4862362DDF493824B /* ReminderType.swift */; };
-		E186B5AD40D7449A842172D9 /* TypeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0C0C3BEAC805518508123 /* TypeBadge.swift */; };
-		E7FDF053F080C4AC09C6AC6C /* ProtocolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA237D56CA5AD3D7EF52DB9F /* ProtocolItem.swift */; };
-		EAD5E824BF62A175209CCD32 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B01FBF5378842714B799EC8 /* RemindersListView.swift */; };
 		F85CF201A386B2BFC2B2DA0B /* JSONSchemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335CA9B18707C7E8A34FB72 /* JSONSchemas.swift */; };
 		F8CDBC0DD56D7FBD051F6DED /* BiomarkerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CF13917ADF8F4705BEAE15 /* BiomarkerRow.swift */; };
 		F903D0D88B4B93B8B0958526 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50CDC9637FDF11FFC6525D7 /* ExportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00CAF94A7216BBC7AAE28783 /* BPReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPReading.swift; sourceTree = "<group>"; };
-		06386F524D1D80B0FECD219F /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
 		0F3ADA08D10590DD12752FCD /* BioTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioTrackerApp.swift; sourceTree = "<group>"; };
 		107A91BEB8BF26E5CBF91379 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		11CF13917ADF8F4705BEAE15 /* BiomarkerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerRow.swift; sourceTree = "<group>"; };
-		2B01FBF5378842714B799EC8 /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
 		32EC3E2EA953309EB16E7594 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3CD7DEC4D153930D18453175 /* SeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedService.swift; sourceTree = "<group>"; };
-		3D4FDC972EEDB0D9EB4B57DD /* WhoopCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoopCharts.swift; sourceTree = "<group>"; };
-		3D8EFC89E2961442C26B345B /* BPContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPContext.swift; sourceTree = "<group>"; };
 		3ED46AE9E06E201ACE75B61E /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		3F01A18B7BFF7E74D107DA06 /* DefaultBiomarkers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultBiomarkers.json; sourceTree = "<group>"; };
-		3F9113EF6648DC01FCB1B022 /* WhoopEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoopEntry.swift; sourceTree = "<group>"; };
 		4A61B65366A9FE958386749F /* BiomarkerTrendChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerTrendChart.swift; sourceTree = "<group>"; };
 		4B1D37FBCD387EE12505C082 /* BloodDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDraw.swift; sourceTree = "<group>"; };
 		565C5BCDF8CB556A6CEA599B /* BiomarkerReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerReading.swift; sourceTree = "<group>"; };
@@ -81,39 +54,24 @@
 		570B763B3F151DBC799B9E38 /* BioTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BioTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582CE276F37684684518AD5D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCalculator.swift; sourceTree = "<group>"; };
-		70F0683ADA019574A296C78F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
-		7120D33CE06DA4222CF153C1 /* BPLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPLogView.swift; sourceTree = "<group>"; };
 		728F5D06C1986AB0C46DD01D /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
 		73B8F390B256A40C60E5D7CD /* BioTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BioTracker.entitlements; sourceTree = "<group>"; };
 		8335CA9B18707C7E8A34FB72 /* JSONSchemas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchemas.swift; sourceTree = "<group>"; };
 		84E657C907424BA3810E397E /* QuickStatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickStatsBar.swift; sourceTree = "<group>"; };
 		86FF5E353C7B4D4521A30A65 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		87BE80E1A8B3AC3D2181EFBB /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		8A82EDFE1158BB23AFE61269 /* BPSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSummaryCard.swift; sourceTree = "<group>"; };
 		8AE52AB469785329CC1C4447 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		8C3809A91D2910390710A28C /* ReadingFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingFlag.swift; sourceTree = "<group>"; };
-		99A0C0C3BEAC805518508123 /* TypeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeBadge.swift; sourceTree = "<group>"; };
-		9B78A753D2E56776CA0CEF11 /* GeneticVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticVariant.swift; sourceTree = "<group>"; };
 		A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSparkline.swift; sourceTree = "<group>"; };
 		B50CDC9637FDF11FFC6525D7 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
-		B78A231D4393DCC8843ADF30 /* BPTrendChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPTrendChart.swift; sourceTree = "<group>"; };
-		B7C7F5D0DDDE51D35B9C3D14 /* ProtocolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolView.swift; sourceTree = "<group>"; };
-		C1D9B7843C98670FB2BA89BD /* WhoopSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoopSummaryCard.swift; sourceTree = "<group>"; };
 		C7820575F03D948A4A18D625 /* Biomarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biomarker.swift; sourceTree = "<group>"; };
-		CC470F95F3D4B1D104584161 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		D26A7B11583D0BB0BEA9D16E /* ProtocolItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolItemType.swift; sourceTree = "<group>"; };
-		D61718638418B24031E4582B /* GeneticVariantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticVariantCard.swift; sourceTree = "<group>"; };
 		D62DE2C3BA976F83F6D10393 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
-		D88CC729F7B5E907D945453D /* WhoopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoopDetailView.swift; sourceTree = "<group>"; };
 		DBAAE1EADAADAE6DC2A0E7A9 /* BiomarkerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerDetailView.swift; sourceTree = "<group>"; };
 		DC087F718CB87B3850F783A2 /* TrendIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendIndicator.swift; sourceTree = "<group>"; };
 		E85153FE919C14E6E378DE8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EA237D56CA5AD3D7EF52DB9F /* ProtocolItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolItem.swift; sourceTree = "<group>"; };
-		EBA995E4862362DDF493824B /* ReminderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderType.swift; sourceTree = "<group>"; };
 		EDC2906DA0525533E8B92C64 /* BiomarkerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerCategory.swift; sourceTree = "<group>"; };
 		EF29C2B561145869FA8BF696 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportService.swift; sourceTree = "<group>"; };
-		FD4F6B0914093146096A2C57 /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -123,11 +81,6 @@
 				C7820575F03D948A4A18D625 /* Biomarker.swift */,
 				565C5BCDF8CB556A6CEA599B /* BiomarkerReading.swift */,
 				4B1D37FBCD387EE12505C082 /* BloodDraw.swift */,
-				00CAF94A7216BBC7AAE28783 /* BPReading.swift */,
-				9B78A753D2E56776CA0CEF11 /* GeneticVariant.swift */,
-				EA237D56CA5AD3D7EF52DB9F /* ProtocolItem.swift */,
-				70F0683ADA019574A296C78F /* Reminder.swift */,
-				3F9113EF6648DC01FCB1B022 /* WhoopEntry.swift */,
 				7B4CB678A627B4839499A84E /* Enums */,
 			);
 			path = Models;
@@ -146,30 +99,18 @@
 			children = (
 				B50CDC9637FDF11FFC6525D7 /* ExportView.swift */,
 				D62DE2C3BA976F83F6D10393 /* ImportView.swift */,
-				2B01FBF5378842714B799EC8 /* RemindersListView.swift */,
 				32EC3E2EA953309EB16E7594 /* SettingsView.swift */,
-				06386F524D1D80B0FECD219F /* SyncView.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		29C97E198BAD47ABAD038BFD /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				B7C7F5D0DDDE51D35B9C3D14 /* ProtocolView.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		360CED77C126F1B9BB7F7A3F /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
 				11CF13917ADF8F4705BEAE15 /* BiomarkerRow.swift */,
-				8A82EDFE1158BB23AFE61269 /* BPSummaryCard.swift */,
 				728F5D06C1986AB0C46DD01D /* CategorySection.swift */,
 				86FF5E353C7B4D4521A30A65 /* DashboardView.swift */,
 				84E657C907424BA3810E397E /* QuickStatsBar.swift */,
-				C1D9B7843C98670FB2BA89BD /* WhoopSummaryCard.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -179,9 +120,7 @@
 			children = (
 				8AE52AB469785329CC1C4447 /* ExportService.swift */,
 				EF29C2B561145869FA8BF696 /* ImportService.swift */,
-				CC470F95F3D4B1D104584161 /* NotificationService.swift */,
 				3CD7DEC4D153930D18453175 /* SeedService.swift */,
-				FD4F6B0914093146096A2C57 /* SyncService.swift */,
 				6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */,
 			);
 			path = Services;
@@ -202,7 +141,6 @@
 				A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */,
 				B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */,
 				DC087F718CB87B3850F783A2 /* TrendIndicator.swift */,
-				99A0C0C3BEAC805518508123 /* TypeBadge.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -211,20 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				EDC2906DA0525533E8B92C64 /* BiomarkerCategory.swift */,
-				3D8EFC89E2961442C26B345B /* BPContext.swift */,
-				D26A7B11583D0BB0BEA9D16E /* ProtocolItemType.swift */,
 				8C3809A91D2910390710A28C /* ReadingFlag.swift */,
-				EBA995E4862362DDF493824B /* ReminderType.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		7D2179024A7D27A9F19527DD /* WHOOP */ = {
-			isa = PBXGroup;
-			children = (
-				D88CC729F7B5E907D945453D /* WhoopDetailView.swift */,
-			);
-			path = WHOOP;
 			sourceTree = "<group>";
 		};
 		81CC3F91331A255DFF8B53B5 /* Utilities */ = {
@@ -253,14 +180,6 @@
 			path = BioTracker;
 			sourceTree = "<group>";
 		};
-		B52A1C167682FF73195F65FC /* BP */ = {
-			isa = PBXGroup;
-			children = (
-				7120D33CE06DA4222CF153C1 /* BPLogView.swift */,
-			);
-			path = BP;
-			sourceTree = "<group>";
-		};
 		BE5541A4DC9971C3C9DE4432 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				DBAAE1EADAADAE6DC2A0E7A9 /* BiomarkerDetailView.swift */,
-				D61718638418B24031E4582B /* GeneticVariantCard.swift */,
 			);
 			path = BiomarkerDetail;
 			sourceTree = "<group>";
@@ -290,8 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				4A61B65366A9FE958386749F /* BiomarkerTrendChart.swift */,
-				B78A231D4393DCC8843ADF30 /* BPTrendChart.swift */,
-				3D4FDC972EEDB0D9EB4B57DD /* WhoopCharts.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -300,14 +216,11 @@
 			isa = PBXGroup;
 			children = (
 				C507643E51BFF0E8697FB28D /* BiomarkerDetail */,
-				B52A1C167682FF73195F65FC /* BP */,
 				360CED77C126F1B9BB7F7A3F /* Dashboard */,
-				29C97E198BAD47ABAD038BFD /* Protocol */,
 				250B0CA6B1D50904117E9C1E /* Settings */,
 				700B31A5FE214F82DCAF78BB /* Shared */,
 				BE5541A4DC9971C3C9DE4432 /* Timeline */,
 				F27CAE99DC2084E7B84E9BC8 /* Trends */,
-				7D2179024A7D27A9F19527DD /* WHOOP */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -385,11 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				439CA643EE4C4E3D8EDEFCED /* BPContext.swift in Sources */,
-				4E612707CEE5C3FC2E84E06C /* BPLogView.swift in Sources */,
-				60CE2DB4FDBE70FD6478C07C /* BPReading.swift in Sources */,
-				77284911DAB4D97FC9746F85 /* BPSummaryCard.swift in Sources */,
-				15A37C28A96A178EF5F66DCF /* BPTrendChart.swift in Sources */,
 				0B318815788DFBD48CA7E067 /* BioTrackerApp.swift in Sources */,
 				31EEC7AC953015D39E1DF093 /* Biomarker.swift in Sources */,
 				9AD61C8CEEE214E2288BA6AF /* BiomarkerCategory.swift in Sources */,
@@ -406,35 +314,19 @@
 				DA6322FC82897DF70E96551C /* EmptyStateView.swift in Sources */,
 				86F4E037BD479C586188F259 /* ExportService.swift in Sources */,
 				F903D0D88B4B93B8B0958526 /* ExportView.swift in Sources */,
-				3F15473536E55B777DFA74AA /* GeneticVariant.swift in Sources */,
-				955BD5C0818278FB99BBF4A9 /* GeneticVariantCard.swift in Sources */,
 				9CCFB381FB3B77D359A3E66D /* ImportService.swift in Sources */,
 				17A1E862C30E10413D9CA368 /* ImportView.swift in Sources */,
 				F85CF201A386B2BFC2B2DA0B /* JSONSchemas.swift in Sources */,
 				388B65EE0C73DFA24C292352 /* MiniSparkline.swift in Sources */,
-				0F6B058F73CDDF4B0561B46B /* NotificationService.swift in Sources */,
-				E7FDF053F080C4AC09C6AC6C /* ProtocolItem.swift in Sources */,
-				656D6605836266B08D02F586 /* ProtocolItemType.swift in Sources */,
-				B5CCF642D7F5CFE58E31669D /* ProtocolView.swift in Sources */,
 				82C1ACE328AF1317A86B58E9 /* QuickStatsBar.swift in Sources */,
 				5555034EBEEEEDB321CDD2E0 /* ReadingFlag.swift in Sources */,
-				BF66B6AC790BCFC6222BEF5A /* Reminder.swift in Sources */,
-				E16AF00A6737C713F428EF8F /* ReminderType.swift in Sources */,
-				EAD5E824BF62A175209CCD32 /* RemindersListView.swift in Sources */,
 				4F5E5BB3623B40EC7A6134F4 /* SeedService.swift in Sources */,
 				0D959E89E9FB8FE95DA02134 /* SettingsView.swift in Sources */,
 				5B1944019814723AB8176A6D /* StatusBadge.swift in Sources */,
-				C188C2B614CA7FABA76BF3AC /* SyncService.swift in Sources */,
-				B9240919AA3830F2AE5D27AD /* SyncView.swift in Sources */,
 				C219448A268D186C40841D73 /* TimelineView.swift in Sources */,
 				2D2112DDC118DB82B4E273EC /* TrendCalculator.swift in Sources */,
 				955A8004E62F8E03F582A3F5 /* TrendIndicator.swift in Sources */,
 				19B528BA5794D37932B07AEF /* TrendsView.swift in Sources */,
-				E186B5AD40D7449A842172D9 /* TypeBadge.swift in Sources */,
-				1BFF582AC5D34A0C4EB76C79 /* WhoopCharts.swift in Sources */,
-				83CC8BC290F17E13DB3E3F3C /* WhoopDetailView.swift in Sources */,
-				873F5E5CBBA34B1EE196ED4D /* WhoopEntry.swift in Sources */,
-				059A3A16F893DCA8F112AE8A /* WhoopSummaryCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

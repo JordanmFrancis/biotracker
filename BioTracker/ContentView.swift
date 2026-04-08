@@ -11,10 +11,6 @@ struct ContentView: View {
                 TrendsView()
             }
 
-            Tab("Protocol", systemImage: "pills.fill") {
-                ProtocolView()
-            }
-
             Tab("Timeline", systemImage: "calendar.badge.clock") {
                 TimelineView()
             }
@@ -31,11 +27,6 @@ struct ContentView: View {
         .modelContainer(for: [
             BloodDraw.self,
             Biomarker.self,
-            BiomarkerReading.self,
-            GeneticVariant.self,
-            ProtocolItem.self,
-            WhoopEntry.self,
-            BPReading.self,
-            Reminder.self
+            BiomarkerReading.self
         ], inMemory: true)
 }

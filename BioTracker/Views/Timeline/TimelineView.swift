@@ -2,25 +2,10 @@ import SwiftUI
 import SwiftData
 
 struct TimelineView: View {
-    @State private var selectedSegment = 0
-
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                Picker("View", selection: $selectedSegment) {
-                    Text("Lab Draws").tag(0)
-                    Text("BP Log").tag(1)
-                }
-                .pickerStyle(.segmented)
-                .padding()
-
-                if selectedSegment == 0 {
-                    BloodDrawTimeline()
-                } else {
-                    BPLogView()
-                }
-            }
-            .navigationTitle("Timeline")
+            BloodDrawTimeline()
+                .navigationTitle("Timeline")
         }
     }
 }
@@ -140,5 +125,5 @@ struct BloodDrawDetailView: View {
 
 #Preview {
     TimelineView()
-        .modelContainer(for: [BloodDraw.self, BPReading.self], inMemory: true)
+        .modelContainer(for: BloodDraw.self, inMemory: true)
 }
