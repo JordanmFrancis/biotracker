@@ -10,7 +10,6 @@
 		0B318815788DFBD48CA7E067 /* BioTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ADA08D10590DD12752FCD /* BioTrackerApp.swift */; };
 		0D959E89E9FB8FE95DA02134 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EC3E2EA953309EB16E7594 /* SettingsView.swift */; };
 		17A1E862C30E10413D9CA368 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE2C3BA976F83F6D10393 /* ImportView.swift */; };
-		2359DAABEB51212AB1FE2437 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF136A2E8D94464FC84D47F /* CategoryDetailView.swift */; };
 		2D2112DDC118DB82B4E273EC /* TrendCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C936C63949D2D9FEF233D13 /* TrendCalculator.swift */; };
 		31EEC7AC953015D39E1DF093 /* Biomarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7820575F03D948A4A18D625 /* Biomarker.swift */; };
 		388B65EE0C73DFA24C292352 /* MiniSparkline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */; };
@@ -23,7 +22,6 @@
 		61B9AAC723EF8FB53A27FBD2 /* BiomarkerTrendChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61B65366A9FE958386749F /* BiomarkerTrendChart.swift */; };
 		73104548238D56C1CE6C518D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C72D037C53BCCF0F1E406 /* Date+Extensions.swift */; };
 		86F4E037BD479C586188F259 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE52AB469785329CC1C4447 /* ExportService.swift */; };
-		9416B12408506D43B3972A57 /* SettingsTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBDB28E8EE0A432B5EBD261 /* SettingsTile.swift */; };
 		955A8004E62F8E03F582A3F5 /* TrendIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC087F718CB87B3850F783A2 /* TrendIndicator.swift */; };
 		9AD61C8CEEE214E2288BA6AF /* BiomarkerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2906DA0525533E8B92C64 /* BiomarkerCategory.swift */; };
 		9CCFB381FB3B77D359A3E66D /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C2B561145869FA8BF696 /* ImportService.swift */; };
@@ -43,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		0273DDFED4FF90E71B428B2F /* ExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionService.swift; sourceTree = "<group>"; };
-		0DBDB28E8EE0A432B5EBD261 /* SettingsTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTile.swift; sourceTree = "<group>"; };
 		0F3ADA08D10590DD12752FCD /* BioTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioTrackerApp.swift; sourceTree = "<group>"; };
 		107A91BEB8BF26E5CBF91379 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		11CF13917ADF8F4705BEAE15 /* BiomarkerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerRow.swift; sourceTree = "<group>"; };
@@ -63,7 +60,6 @@
 		87BE80E1A8B3AC3D2181EFBB /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		8AE52AB469785329CC1C4447 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		8C3809A91D2910390710A28C /* ReadingFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingFlag.swift; sourceTree = "<group>"; };
-		8FF136A2E8D94464FC84D47F /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSparkline.swift; sourceTree = "<group>"; };
 		B50CDC9637FDF11FFC6525D7 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 			children = (
 				582CE276F37684684518AD5D /* EmptyStateView.swift */,
 				A1BCC82C67F7A46FFF578B7B /* MiniSparkline.swift */,
-				0DBDB28E8EE0A432B5EBD261 /* SettingsTile.swift */,
 				B5BD42AF78FA1C0F7A484B1E /* StatusBadge.swift */,
 				DC087F718CB87B3850F783A2 /* TrendIndicator.swift */,
 			);
@@ -159,7 +154,6 @@
 		731ABF3BD2978FC80A2BD51F /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				8FF136A2E8D94464FC84D47F /* CategoryDetailView.swift */,
 				CC2B99C8009588CA433D58FB /* HealthView.swift */,
 			);
 			path = Health;
@@ -328,7 +322,6 @@
 				F8CDBC0DD56D7FBD051F6DED /* BiomarkerRow.swift in Sources */,
 				61B9AAC723EF8FB53A27FBD2 /* BiomarkerTrendChart.swift in Sources */,
 				A61B360761573B6A7E8D69D6 /* BloodDraw.swift in Sources */,
-				2359DAABEB51212AB1FE2437 /* CategoryDetailView.swift in Sources */,
 				458DF7E66D8CF85508D2B2FA /* Color+Extensions.swift in Sources */,
 				D2FAC62A566CB654DA4B06DE /* ContentView.swift in Sources */,
 				73104548238D56C1CE6C518D /* Date+Extensions.swift in Sources */,
@@ -345,7 +338,6 @@
 				50CB94BFD6AD3D11D55B8D9D /* PhotoCaptureView.swift in Sources */,
 				5555034EBEEEEDB321CDD2E0 /* ReadingFlag.swift in Sources */,
 				4F5E5BB3623B40EC7A6134F4 /* SeedService.swift in Sources */,
-				9416B12408506D43B3972A57 /* SettingsTile.swift in Sources */,
 				0D959E89E9FB8FE95DA02134 /* SettingsView.swift in Sources */,
 				5B1944019814723AB8176A6D /* StatusBadge.swift in Sources */,
 				C219448A268D186C40841D73 /* TimelineView.swift in Sources */,

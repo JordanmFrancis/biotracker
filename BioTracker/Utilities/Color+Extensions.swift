@@ -36,23 +36,6 @@ extension Color {
     /// The trend line itself
     static let chartLine = Color(hex: 0x2DD4BF)
 
-    // MARK: Category tile colors (squircle icons, Apple-Settings style)
-
-    static let tileBlue = Color(hex: 0x3B82F6)     // metabolic
-    static let tileOrange = Color(hex: 0xF97316)   // lipids
-    static let tileAmber = Color(hex: 0xEAB308)    // liver
-    static let tileTeal = Color(hex: 0x14B8A6)     // kidney
-    static let tilePurple = Color(hex: 0xA855F7)   // hormones
-    static let tilePink = Color(hex: 0xEC4899)     // thyroid
-    static let tileGreen = Color(hex: 0x22C55E)    // vitamins
-    static let tileCoral = Color(hex: 0xF43F5E)    // inflammation
-    static let tileRose = Color(hex: 0xFB7185)     // CBC
-    static let tileCyan = Color(hex: 0x06B6D4)     // iron
-    static let tileIndigo = Color(hex: 0x6366F1)   // psa
-    static let tileLime = Color(hex: 0x84CC16)     // differential
-    static let tileViolet = Color(hex: 0x8B5CF6)   // dutch
-    static let tileSlate = Color(hex: 0x64748B)    // other / urinalysis
-
     // MARK: Hex helper
 
     init(hex: UInt32, opacity: Double = 1.0) {
